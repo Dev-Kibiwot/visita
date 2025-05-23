@@ -18,20 +18,20 @@
 
 ## 📸 Screenshots
 
-### 🖼️ Home Screen
-![Home](assets/1.png)
+### 🖼️ Dshboard
+![Home](assets/1.jpg)
 
-### 🖼️ Visit Form
-![Visit Form](assets/2.png)
+### 🖼️ Visit list
+![Visit Form](assets/2.jpg)
 
 ### 🖼️ Search Page
-![Search](assets/3.png)
+![Search](assets/3.jpg)
 
 ### 🖼️ Filters
-![Filters](assets/4.png)
+![Filters](assets/5.jpg)
 
 ### 🖼️ Add visit
-![Analytics](assets/5.png)
+![Analytics](assets/4.jpg)
 
 ---
 
