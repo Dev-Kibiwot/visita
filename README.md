@@ -46,12 +46,14 @@
 ---
 
 ## ️ Project Structure
+```
 lib/
-   controllers/ # GetX controllers for logic/state
-    constants/ # Reusable UI widgets (e.g. cards, app bar)
-    utils/ # Helpers, colors, formatters
-    services/ # API service handler
-    views/ # UI pages/screens
-    main.dart # App entry point
+   controllers/     # GetX controllers for logic/state
+    constants/      # Reusable UI widgets (e.g. widgest,text, app bar)
+    utils/          # Helpers, colors, formatters
+    services/      # API service handler
+    views/         # UI pages/screens
+    main.dart      # App entry point
+```
 
 
