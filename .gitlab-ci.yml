@@ -1,0 +1,38 @@
+image: ghcr.io/cirruslabs/flutter:stable
+
+stages:
+  - clean
+  - test
+  - build
+  - distribute
+
+clean_file:
+  stage: clean
+  script:
+    - flutter clean
+    - flutter pub get
+
+test_project:
+  stage: test
+  script:
+    - flutter analyze
+    - flutter test
+
+build_apk:
+  stage: build
+  script:
+    - flutter build apk --release --build-number $BUILD_NUMBER --dart-define=APP_VERSION=$VERSION_NUMBER --obfuscate --split-debug-info="$(pwd)/dump" --build-name="v$VERSION_NUMBER"
+
+  artifacts:
+    when: always
+    paths:
+      - build/app/outputs/flutter-apk/app-release.apk
+
+firebase_distribution:
+  stage: distribute
+  script:
+    - test -f build/app/outputs/flutter-apk/app-release.apk && echo "APK exists"
+    - curl -sL https://firebase.tools | bash
+    - echo "=== DISTRIBUTING TO LOCAL TESTERS ==="
+    - firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk --app $APP_BUNDLE_ID --testers $TESTERS --token $FIREBASE_TOKEN --release-notes "Automated build from GitLab CI"
+    - echo "=== DISTRIBUTED APP to Firebase App Tester ==="
