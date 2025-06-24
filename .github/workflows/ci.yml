@@ -64,3 +64,18 @@ jobs:
         with:
           name: app-release-apk
           path: build/app/outputs/apk/release/app-release.apk
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Authenticate with Firebase
+        run: echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}" > "$env:HOME/firebase-key.json"
+
+      - name: Firebase App Distribution
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ env.HOME }}/firebase-key.json
+        run: |
+          firebase appdistribution:distribute build/app/outputs/apk/release/app-release.apk `
+            --app 1:1025602617721:android:df9f1c6d4e4e5350ef6fa8 `
+            --release-notes "Automated release from GitHub Actions" `
+            --groups "testers"
