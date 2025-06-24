@@ -95,5 +95,5 @@ Currently Implemented which include local data caching using `hive` to allow:
   - 
  ### Continuous Integration (CI/CD)
 
-CI/CD is configured via **Github CI**, but the pipeline currently fails due to `.env` file during build but working on it to ensure it builds without errors.
+CI/CD is configured via **Github CI**.
 
