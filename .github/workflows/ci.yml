@@ -37,7 +37,7 @@ jobs:
             Write-Host "No test directory found. Skipping tests."
           }
 
-  build_apk:
+    build_apk:
     name: Build Flutter APK (Android)
     needs: [flutter_test]
     runs-on: windows-latest
@@ -60,7 +60,8 @@ jobs:
         run: flutter build apk --release
 
       - name: Upload APK artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: app-release-apk
           path: build/app/outputs/apk/release/app-release.apk
+
