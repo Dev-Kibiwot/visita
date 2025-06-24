@@ -94,6 +94,27 @@ Currently Implemented which include local data caching using `hive` to allow:
   - Widget tests for UI validation
   - 
  ### Continuous Integration (CI/CD)
+CI/CD is configured using GitHub Actions and runs automatically on each push or pull request to the main branch.
 
-CI/CD is configured via **Github CI**.
+#### ✅ Workflow Includes:
+- Static Analysis & Testing
 
+- Checks out code
+
+- Sets up Java and Flutter environments
+
+- Runs:
+
+- flutter pub get (fetch dependencies)
+
+- flutter analyze (lint and code quality)
+
+- flutter test (run unit/widget tests)
+
+#### Build for Android
+
+- Triggered only after successful test job
+
+- Builds an Android App Bundle (AAB) via:
+
+- flutter build appbundle
