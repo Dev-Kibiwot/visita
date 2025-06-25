@@ -40,6 +40,7 @@
 ![Filters](assets/6.jpg)
 
 
+
 ---
 
 ##  Tech Stack
@@ -84,7 +85,7 @@ flutter run
 ```
 ###  Offline Support
 Currently Implemented which include local data caching using `hive` to allow:
-- Offline posting of visits
+- Offline access to visit records
 - Background sync on reconnect
 
 ### Testing
@@ -113,5 +114,11 @@ CI/CD is configured using GitHub Actions and runs automatically on each push or 
 - Uploads the release build to Firebase App Distribution, making it instantly available    to testers or teams.
  #### 🔐 Firebase Integration
 - Uses GitHub Secrets for secure service account credentials
+
 - Automatically distributes the build to a tester group ie testers
+
 - Includes release notes and supports future staged rollouts 
+
+#### Limitation
+- Doesn't create new visit due permission but configured to create both when online and offline.
+ 
